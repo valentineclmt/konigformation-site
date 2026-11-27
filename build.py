@@ -16,6 +16,8 @@ DOMAINS = {"ia": "Intelligence artificielle", "marketing": "Marketing digital", 
 FBY = {f["slug"]: f for f in FORMATIONS}
 PAGES = []  # (path, lastmod) pour le sitemap
 TODAY = datetime.date.today().isoformat()
+# Passer à True le jour de la bascule DNS (ajoute le fichier CNAME pour GitHub Pages)
+CUSTOM_DOMAIN = False
 VER = datetime.datetime.now().strftime("%Y%m%d%H%M")
 
 def fdate(iso):
@@ -490,7 +492,7 @@ def main():
     for p in posts: build_post(p, posts)
     build_landing(); build_legal()
     redirect("formations-en-ligne-certifiees-cpf/", "")
-    open(os.path.join(OUT, "CNAME"), "w").write("www.konigformation.com\n")
+    if CUSTOM_DOMAIN: open(os.path.join(OUT, "CNAME"), "w").write("www.konigformation.com\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {S.SITE_URL}/sitemap.xml\n")
     urls = "".join(f"<url><loc>{S.SITE_URL}/{p}</loc><lastmod>{TODAY}</lastmod></url>" for p in PAGES)
