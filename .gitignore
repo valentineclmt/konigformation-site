@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 .claude/
+# Doublons iCloud
+* [0-9]
+* [0-9].*
