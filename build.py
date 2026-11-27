@@ -114,7 +114,7 @@ def page(path, title, desc, body, *, chrome="full", jsonld=None, og_img=None, og
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A2A4E">
 <link rel="icon" href="{p}assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="{p}assets/fonts/BodoniModa-normal-400_900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{p}assets/fonts/Newsreader-normal-400_700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{p}assets/fonts/SchibstedGrotesk-normal-400_900-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{p}assets/fonts/fonts.css"><link rel="stylesheet" href="{p}assets/css/site.css?v={VER}">
 {extra_head}{ld}
@@ -208,7 +208,7 @@ def build_home(posts):
     body = f'''
 <section class="hero"><div class="wrap hero__grid">
 <div><span class="label label--brass">Organisme de formation certifié Qualiopi</span>
-<h1>Développez vos compétences <em>à votre rythme</em>, où que vous soyez, avec nos formations en ligne éligibles CPF</h1>
+<h1>Développez vos compétences à votre rythme, où que vous soyez, avec nos formations en ligne éligibles CPF</h1>
 <p class="lead">Transformez votre carrière grâce à nos formations certifiantes entièrement à distance.</p>
 <div class="btns"><a class="btn" href="{S.RDV}">Contacter un conseiller</a><a class="btn btn--ghost" href="#formations">Voir les formations</a></div>
 <a class="hero__sante link" href="{S.LINKS["sante"]}" rel="noopener">Découvrez aussi nos formations Santé ↗</a></div>
