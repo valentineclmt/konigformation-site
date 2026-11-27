@@ -537,3 +537,9 @@ p,li{max-width:70ch}
 .form label{font:600 .88rem/1 var(--sans);text-transform:none;letter-spacing:0}
 .btn{font-size:1rem;padding:1em 1.4em}
 .hero h1{margin-top:0;margin-bottom:2.4rem}
+/* Accueil : titre pleine largeur, sommaire en dessous */
+.hero__grid{grid-template-columns:minmax(0,1fr);gap:clamp(48px,6vw,80px)}
+.hero h1{max-width:none;font-size:clamp(2rem,1.2rem + 2.6vw,3.6rem);text-wrap:pretty;hyphens:none;-webkit-hyphens:none}
+.hero__aside{padding:2rem 2.4rem 1.8rem}
+.hero__aside .toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3rem}
+@media (max-width:760px){.hero__aside .toc{grid-template-columns:minmax(0,1fr)}.hero__aside{padding:1.6rem 1.4rem}}
