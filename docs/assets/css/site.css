@@ -3,7 +3,7 @@
 :root{
   --bg:#F7F6F2; --card:#FFFFFF; --ink:#101828; --ink-2:#2B3444; --mut:#5B6474;
   --navy:#0B2A4E; --navy-2:#123A66; --blue:#3D6BFF; --blue-2:#2F57E0;
-  --sky:#DCE7FF; --lime:#D8F36A; --peach:#FFD9C2; --mint:#CFF1E2;
+  --sky:#DCE7FF; --lime:#FFD45C; --peach:#FFD9C2; --mint:#E7E1FF;
   --line:rgba(16,24,40,.09); --line-2:rgba(16,24,40,.16);
   --on-navy:#FFFFFF; --on-navy-mut:rgba(255,255,255,.72); --line-navy:rgba(255,255,255,.16);
   --disp:"Unbounded", "Arial Black", Arial, sans-serif; --sans:"Onest", "Helvetica Neue", Arial, sans-serif;
