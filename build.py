@@ -208,12 +208,13 @@ def build_home(posts):
     latest = "".join(post_card(path, p) for p in posts[:3])
     flag = next(f for f in FORMATIONS if f.get("flagship"))
     body = f'''
-<section class="hero"><div class="wrap hero__grid">
+<section class="hero"><div class="wrap hero__intro">
 <div><h1>Développez vos compétences à votre rythme, où que vous soyez, avec nos formations en ligne éligibles CPF</h1>
 <div class="btns"><a class="btn" href="{S.RDV}">Contacter un conseiller</a><a class="btn btn--ghost" href="#formations">Voir les formations</a></div>
 <a class="hero__sante link" href="{S.LINKS["sante"]}" rel="noopener">Découvrez aussi nos formations Santé ↗</a></div>
-<aside class="hero__aside" aria-label="Sommaire des formations"><span class="label"><span>Sommaire</span><span>{len(FORMATIONS)} formations certifiantes</span></span><ol class="toc">{toc}</ol></aside>
-</div></section>
+</div>
+<div class="wrap hero__toc"><aside class="hero__aside" aria-label="Sommaire des formations"><span class="label"><span>Sommaire</span><span>{len(FORMATIONS)} formations certifiantes</span></span><ol class="toc">{toc}</ol></aside></div>
+</section>
 <section class="section--tight"><div class="wrap"><div class="trust">
 <a href="{L(path,S.LINKS["qualiopi_pdf"])}"><img src="{L(path,"assets/img/Logo-Qualiopi-300dpi-Avec-Marianne-1.jpg")}" alt="Qualiopi" width="150" height="56"><span class="label">Certifié Qualiopi</span></a>
 <a href="{S.LINKS["cpf_home"]}" rel="noopener"><img src="{L(path,"assets/img/Logo-officiel-cpf-1.png")}" alt="Mon Compte Formation" width="120" height="56"><span class="label">Éligible CPF</span></a>

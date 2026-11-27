@@ -543,3 +543,5 @@ p,li{max-width:70ch}
 .hero__aside{padding:2rem 2.4rem 1.8rem}
 .hero__aside .toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3rem}
 @media (max-width:760px){.hero__aside .toc{grid-template-columns:minmax(0,1fr)}.hero__aside{padding:1.6rem 1.4rem}}
+.hero__intro{display:block}
+.hero__toc{margin-top:clamp(48px,6vw,80px)}
