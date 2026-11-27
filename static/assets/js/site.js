@@ -38,3 +38,9 @@
     ds.forEach(function(x){x.open=open});b.textContent=open?'Tout replier':'Tout déplier';
   })});
 })();
+/* Vidéos : pas d'animation si l'utilisateur préfère réduire les mouvements */
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('video[autoplay]').forEach(function(v){v.removeAttribute('autoplay');v.pause();v.setAttribute('controls','')});
+  }
+})();

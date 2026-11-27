@@ -133,6 +133,30 @@ def page(path, title, desc, body, *, chrome="full", jsonld=None, og_img=None, og
     open(dest, "w").write(doc)
     if robots is None: PAGES.append(path)
 
+
+PHOTOS = {
+ "groupe":("Apprenants échangeant autour d’ordinateurs portables",1067),
+ "atelier":("Atelier de formation en petit groupe",1067),
+ "ia":("Main robotique, symbole de l’intelligence artificielle",1152),
+ "office":("Ordinateur portable affichant un tableau de bord",1140),
+ "sur-mesure":("Échange entre un formateur et un apprenant devant un ordinateur",1067),
+ "centre":("Session de formation avec formateur et apprenants équipés d’ordinateurs",1067),
+ "formation-ia":("Deux personnes travaillant sur un ordinateur portable",1067),
+ "formation-ia-automatisation":("Équipe travaillant ensemble sur ordinateur",1067),
+ "formation-ia-marketing-de-contenus":("Groupe échangeant autour d’une tablette",1067),
+ "formation-pack-office":("Prise de notes à un bureau",1067),
+ "formation-excel":("Graphiques et données sur un écran",1160),
+ "formation-microsoft-365":("Réunion en visioconférence sur un ordinateur portable",1200),
+}
+def photo(path, name, cls="", sizes="(max-width: 900px) 100vw, 1200px", eager=False):
+    alt, h = PHOTOS[name]
+    b = L(path, "assets/photos/" + name)
+    return (f'<figure class="ph {cls}"><img src="{b}.jpg" srcset="{b}-800.jpg 800w, {b}.jpg 1600w" sizes="{sizes}" '
+            f'alt="{E(alt)}" width="1600" height="{h}" {"fetchpriority=high" if eager else "loading=lazy"} decoding="async"></figure>')
+def video(path, name, label, cls=""):
+    return (f'<figure class="vid {cls}"><video autoplay muted loop playsinline preload="metadata" aria-label="{E(label)}">'
+            f'<source src="{L(path,"assets/video/"+name+".mp4")}" type="video/mp4"></video></figure>')
+
 # ------------------------------------------------------------------ blocs partagés
 def financement(path, mention=True):
     cols = "".join(f'<article><span class="num">{chr(65+i)}</span><h3>{E(a)}</h3><span class="sub">{E(b)}</span><p>{E(c)}</p></article>'
@@ -203,7 +227,8 @@ def build_home(posts):
     univ = [("Intelligence artificielle","formation-intelligence-artificielle/","Découvrez comment l’IA peut transformer vos projets et votre carrière : de l’IA générative à l’automatisation, en passant par le marketing de contenus."),
             ("Pack Office","formation-pack-office-2/","Gagnez en productivité avec une maîtrise complète des outils bureautiques. Apprenez à créer des documents, analyser des données et collaborer."),
             ("Sur mesure",None,"Nous créons un programme adapté à vos besoins, qu’il s’agisse d’une formation individuelle ou collective. Contenu, durée, objectifs : tout est ajusté pour répondre à vos attentes.")]
-    uni = "".join(f'<article><span class="num">{chr(65+i)}</span><h3>{t}</h3><p>{d}</p><a class="link-arrow small" href="{L(path,u) if u else S.RDV}">{"Découvrir" if u else "Nous contacter"}</a></article>' for i,(t,u,d) in enumerate(univ))
+    uimg = ["ia", "office", "sur-mesure"]
+    uni = "".join(f'<article>{photo(path, uimg[i], "ph--card", "(max-width: 860px) 100vw, 400px")}<span class="num">{chr(65+i)}</span><h3>{t}</h3><p>{d}</p><a class="link-arrow small" href="{L(path,u) if u else S.RDV}">{"Découvrir" if u else "Nous contacter"}</a></article>' for i,(t,u,d) in enumerate(univ))
     figs = "".join(f'<div><b>{a}<sup>{b}</sup></b><span>{c}</span></div>' for a, b, c in S.CHIFFRES)
     latest = "".join(post_card(path, p) for p in posts[:3])
     flag = next(f for f in FORMATIONS if f.get("flagship"))
@@ -213,6 +238,7 @@ def build_home(posts):
 <div class="btns"><a class="btn" href="{S.RDV}">Contacter un conseiller</a><a class="btn btn--ghost" href="#formations">Voir les formations</a></div>
 <a class="hero__sante link" href="{S.LINKS["sante"]}" rel="noopener">Découvrez aussi nos formations Santé ↗</a></div>
 </div>
+<div class="wrap hero__media rv">{video(path,"formation-paperboard","Séance de formation animée par un formateur")}</div>
 <div class="wrap hero__toc"><aside class="hero__aside" aria-label="Sommaire des formations"><span class="label"><span>Sommaire</span><span>{len(FORMATIONS)} formations certifiantes</span></span><ol class="toc">{toc}</ol></aside></div>
 </section>
 <section class="section--tight"><div class="wrap"><div class="trust">
@@ -240,7 +266,7 @@ def build_home(posts):
 <section class="section"><div class="wrap split">
 <div class="rv"><span class="label">Le centre</span><h2 style="margin-top:1.2rem">Un centre de formation dédié à <em>votre réussite</em></h2>
 <p class="lead">Notre centre vous accompagne à chaque étape de votre parcours. Avec des programmes certifiés Qualiopi et éligibles au CPF, nous proposons des solutions flexibles, accessibles 24/7, et adaptées à vos besoins.</p></div>
-<div class="rv"><p class="pull">Que vous souhaitiez développer vos compétences, évoluer professionnellement ou vous reconvertir, nous sommes là pour transformer vos ambitions en réussite.</p>
+<div class="rv">{video(path,"visio","Formation suivie à distance en visioconférence","vid--side")}<p class="pull" style="margin-top:2rem">Que vous souhaitiez développer vos compétences, évoluer professionnellement ou vous reconvertir, nous sommes là pour transformer vos ambitions en réussite.</p>
 <div style="margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid var(--rule)"><span class="label label--brass">Notre formation phare</span>
 <h3 style="font-size:1.7rem;margin:.6rem 0 .6rem">{flag["display_title"]}</h3><p class="muted">{flag["code"]} · {E(flag["facts"][0][1])}</p><a class="link-arrow" href="{L(path,flag["slug"]+"/")}">Découvrir la formation</a></div></div>
 </div></section>
@@ -288,6 +314,7 @@ def build_formation(f, i):
 <aside class="fiche"><h2>Fiche technique</h2><dl>{facts}</dl>{note}
 <div class="fiche__logos"><a href="{f["cpf"]}" rel="noopener" title="Voir sur Mon Compte Formation"><img src="{L(path,"assets/img/Logo-officiel-cpf-1.png")}" alt="Mon Compte Formation" width="90" height="44"></a><img src="{L(path,"assets/img/logo-france-travail-removebg-preview.webp")}" alt="France Travail" width="90" height="44"><a href="{L(path,S.LINKS["qualiopi_pdf"])}"><img src="{L(path,"assets/img/Logo-Qualiopi-300dpi-Avec-Marianne-1.jpg")}" alt="Qualiopi" width="100" height="44"></a></div></aside>
 </div></section>
+<div class="wrap">{photo(path, f["slug"], "ph--wide", eager=False)}</div>
 <div class="wrap doc">
 <aside class="toc-side"><span class="label">Sur cette page</span><ol>{side}</ol><a class="btn" href="{S.RDV}">Parler à un conseiller</a></aside>
 <div>
@@ -315,7 +342,7 @@ def build_formation(f, i):
 
 def build_hub(h):
     path = h["slug"] + "/"
-    cards = "".join(f'<a href="{L(path,s+"/")}" class="rv"><span class="mono">{FBY[s]["code"]} · {E(dur(FBY[s]))}</span><h3>{E(FBY[s]["short"])}</h3><p>{d}</p><span class="link-arrow small">En savoir plus</span></a>' for s, d in h["items"])
+    cards = "".join(f'<a href="{L(path,s+"/")}" class="rv">{photo(path, s, "ph--card", "(max-width: 900px) 100vw, 400px")}<span class="mono">{FBY[s]["code"]} · {E(dur(FBY[s]))}</span><h3>{E(FBY[s]["short"])}</h3><p>{d}</p><span class="link-arrow small">En savoir plus</span></a>' for s, d in h["items"])
     formats = ""
     if h.get("formats"):
         formats = '<div class="feats" style="margin-top:2rem">' + "".join(f"<div><h3>{E(t)}</h3><p>{E(d)}</p></div>" for t, d in h["formats"]) + "</div>"
@@ -327,6 +354,7 @@ def build_hub(h):
 <section class="phero"><div class="wrap"><span class="label label--brass">{DOMAINS[h["domain"]]} · {len(h["items"])} formations certifiantes</span>
 <h1 style="max-width:18ch">{h["display_title"]}</h1><p class="lead">{h["lead"]}</p>
 <div class="btns" style="margin-top:2rem"><a class="btn" href="{S.RDV}">Boostez votre carrière avec une certification</a><a class="btn btn--ghost" href="#parcours">Voir les parcours</a></div></div></section>
+<div class="wrap">{photo(path, "ia" if h["domain"]=="ia" else "office", "ph--wide")}</div>
 <section class="section" id="parcours"><div class="wrap">
 <div class="shead rv"><div><span class="label">Pourquoi se former</span><h2>{h["why_title"]}</h2></div><p>{h["why"]}</p></div>
 <div class="hubs">{cards}</div>{formats}</div></section>
@@ -393,7 +421,7 @@ def build_programmes():
         ext = f["programme"].startswith("http")
         href = f["programme"] if ext else L(path, f["programme"])
         facts = " · ".join(E(b) for a, b in f["facts"][:2])
-        items.append(f'''<article class="prog rv" id="{f["slug"]}">
+        items.append(f'''<article class="prog rv" id="{f["slug"]}">{photo(path, f["slug"], "ph--prog", "(max-width: 760px) 100vw, 360px")}
 <div class="prog__head"><span class="num">{i:02d}</span><div><span class="label label--brass">{DOMAINS[f["domain"]]} · {f["code"]}</span>
 <h2>{f["display_title"]}</h2><p class="muted">{facts}</p></div></div>
 <ol class="prog__mods">{mods}</ol>
@@ -428,7 +456,7 @@ def build_landing():
 <div class="btns" style="flex-direction:column;align-items:stretch"><a class="btn" href="{S.RDV}" style="justify-content:space-between">Je vérifie mon éligibilité</a><a class="btn btn--ghost" href="tel:{S.PHONE_INTL}" style="justify-content:space-between">Appeler le {S.PHONE}</a></div></div>
 </div></section>
 <section class="section"><div class="wrap split">
-<div class="rv"><span class="label">Certification</span><h2 style="margin-top:1.2rem">Obtenez une certification officielle <em>reconnue par l’État</em></h2></div>
+<div class="rv"><span class="label">Certification</span><h2 style="margin-top:1.2rem">Obtenez une certification officielle <em>reconnue par l’État</em></h2>{photo(path,"groupe","ph--side")}</div>
 <div class="rv"><p class="lead">À l’issue de la formation, vous passez la certification « Création de contenus rédactionnels et visuels par l’usage responsable de l’intelligence artificielle générative », enregistrée au Répertoire Spécifique de France Compétences sous le numéro RS6776.</p>
 <div class="btns"><a class="btn" href="{S.RDV}">Je profite de la formation prise en charge</a><a class="link-arrow" href="{L(path,"formation-ia/")}">Programme détaillé</a></div></div></div></section>
 <section class="section section--paper2"><div class="wrap">
@@ -457,6 +485,7 @@ def build_legal():
 <p>Directeur de la publication : Alexis ROMITO, en qualité de gérant de SARL KONIG.</p>
 <h2>Hébergement</h2><p>Le Site est hébergé par GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — <a href="https://github.com/contact" rel="noopener">github.com/contact</a>.</p>
 <h2>Conception du site</h2><p>Conception initiale : El Jaouhari Younes, webmaster indépendant (SIRET 979 797 966 00012). Refonte 2026 : Konig Formation.</p>
+<h2>Crédits photos et vidéos</h2><p>Photographies : Unsplash (licence Unsplash). Vidéos : Pexels (licence Pexels).</p>
 <h2>Propriété intellectuelle</h2><p>L’ensemble des contenus du Site (textes, logo, éléments graphiques) est la propriété de SARL KONIG, sauf mention contraire. Toute reproduction sans autorisation préalable est interdite.</p></div>'''
     page("mentions-legales/", "Mentions légales | Konig Formation", "Mentions légales du site konigformation.com — SARL Konig, Neuilly-sur-Seine.", ml)
     pc = f'''<div class="wrap legal"><span class="label label--brass">Informations légales</span><h1 style="font-size:var(--step-4)">Politique de confidentialité</h1>
