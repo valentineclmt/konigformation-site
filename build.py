@@ -70,8 +70,6 @@ def header(path):
 <header class="header"><div class="wrap">{brand(path)}
 <nav class="nav" aria-label="Navigation principale">
 <button type="button" data-mega-btn aria-expanded="false">Formations</button>
-<a href="{L(path,"formation-intelligence-artificielle/")}">Intelligence artificielle</a>
-<a href="{L(path,"formation-pack-office-2/")}">Pack Office</a>
 <a href="{L(path,"programmes/")}">Programmes</a>
 <a href="{L(path,"")}#financement">Financement</a>
 <a href="{L(path,"blog/")}">Blog</a>
@@ -233,20 +231,19 @@ def build_home(posts):
     latest = "".join(post_card(path, p) for p in posts[:3])
     flag = next(f for f in FORMATIONS if f.get("flagship"))
     body = f'''
-<section class="hero"><div class="wrap hero__intro">
-<div><h1>Développez vos compétences à votre rythme, où que vous soyez, avec nos formations en ligne éligibles CPF</h1>
-<div class="btns"><a class="btn" href="{S.RDV}">Contacter un conseiller</a><a class="btn btn--ghost" href="#formations">Voir les formations</a></div>
-<a class="hero__sante link" href="{S.LINKS["sante"]}" rel="noopener">Découvrez aussi nos formations Santé ↗</a></div>
-</div>
-<div class="wrap hero__media rv">{video(path,"formation-paperboard","Séance de formation animée par un formateur")}</div>
-<div class="wrap hero__toc"><aside class="hero__aside" aria-label="Sommaire des formations"><span class="label"><span>Sommaire</span><span>{len(FORMATIONS)} formations certifiantes</span></span><ol class="toc">{toc}</ol></aside></div>
-</section>
-<section class="section--tight"><div class="wrap"><div class="trust">
-<a href="{L(path,S.LINKS["qualiopi_pdf"])}"><img src="{L(path,"assets/img/Logo-Qualiopi-300dpi-Avec-Marianne-1.jpg")}" alt="Qualiopi" width="150" height="56"><span class="label">Certifié Qualiopi</span></a>
-<a href="{S.LINKS["cpf_home"]}" rel="noopener"><img src="{L(path,"assets/img/Logo-officiel-cpf-1.png")}" alt="Mon Compte Formation" width="120" height="56"><span class="label">Éligible CPF</span></a>
-<a href="{S.LINKS["france_travail"]}" rel="noopener"><img src="{L(path,"assets/img/logo-france-travail-removebg-preview.webp")}" alt="France Travail" width="120" height="56"><span class="label">Référencé France Travail</span></a>
-<div><img src="{L(path,"assets/img/OPCO-logo-Cib-formation-1.png")}" alt="OPCO" width="120" height="56"><span class="label">Finançable OPCO</span></div>
-</div></div></section>
+<section class="hero"><div class="wrap">
+<div class="hb"><div><span class="chip">★ Organisme certifié Qualiopi</span>
+<h1>Développez vos compétences à votre rythme, où que vous soyez, avec nos formations en ligne éligibles CPF</h1>
+<div class="btns"><a class="btn btn--lime" href="{S.RDV}">Contacter un conseiller</a><a class="btn btn--line" href="#formations">Voir les formations</a></div>
+<a class="hero__sante" href="{S.LINKS["sante"]}" rel="noopener">Découvrez aussi nos formations Santé ↗</a></div>
+{video(path,"formation-paperboard","Séance de formation animée par un formateur")}</div>
+<div class="logos">
+<a href="{L(path,S.LINKS["qualiopi_pdf"])}"><img src="{L(path,"assets/img/Logo-Qualiopi-300dpi-Avec-Marianne-1.jpg")}" alt="Qualiopi" width="110" height="40">Certifié Qualiopi</a>
+<a href="{S.LINKS["cpf_home"]}" rel="noopener"><img src="{L(path,"assets/img/Logo-officiel-cpf-1.png")}" alt="Mon Compte Formation" width="70" height="40">Éligible CPF</a>
+<a href="{S.LINKS["france_travail"]}" rel="noopener"><img src="{L(path,"assets/img/logo-france-travail-removebg-preview.webp")}" alt="France Travail" width="70" height="40">France Travail</a>
+<div><img src="{L(path,"assets/img/OPCO-logo-Cib-formation-1.png")}" alt="OPCO" width="70" height="40">Finançable OPCO</div></div>
+<div class="hero__toc"><aside class="hero__aside" aria-label="Sommaire des formations"><span class="label"><span>Sommaire</span><span>{len(FORMATIONS)} formations certifiantes</span></span><ol class="toc">{toc}</ol></aside></div>
+</div></section>
 <section class="section" id="formations"><div class="wrap">
 <div class="shead rv"><div><span class="label">Nos formations</span><h2>Un parcours <em>adapté</em> à vos besoins</h2></div>
 <p>Découvrez nos formations 100 % en ligne, conçues pour s’adapter à votre rythme. Que vous souhaitiez maîtriser de nouvelles technologies ou améliorer vos performances professionnelles, nos programmes certifiés et éligibles au CPF vous accompagnent à chaque étape pour transformer vos ambitions en réalité.</p></div>
