@@ -392,3 +392,6 @@ dict(
             ("ul",["Améliorer votre efficacité au quotidien et gagner du temps","Accroître votre employabilité avec des compétences recherchées","Valoriser votre profil professionnel avec une certification reconnue"])],
 ),
 ]
+
+# Formation Marketing digital retirée du site (27/11/2026) — données conservées ci-dessus si besoin.
+FORMATIONS = [f for f in FORMATIONS if f["domain"] != "marketing"]

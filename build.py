@@ -46,13 +46,13 @@ def blocks(bl):
     return "\n".join(out)
 
 def brand(path, cls=""):
+    img = "logo-konig-white.png" if cls == "light" else "logo-konig-ink.png"
     return (f'<a class="brand {cls}" href="{L(path,"")}" aria-label="Konig Formation — accueil">'
-            '<span class="brand__mark" aria-hidden="true"><span class="k1">K</span><span class="dot">·</span><span>K</span></span>'
-            '<span class="brand__name">Konig<br>Formation</span></a>')
+            f'<img src="{L(path,"assets/img/"+img)}" alt="Konig Formation" width="1023" height="437"></a>')
 
 def mega(path):
     cols = []
-    for dom in ("ia", "marketing", "office"):
+    for dom in ("ia", "office"):
         links = "".join(f'<a href="{L(path,f["slug"]+"/")}">{E(f["short"])}<small>{f["code"]}</small></a>'
                         for f in FORMATIONS if f["domain"] == dom)
         hub = next((h for h in HUBS if h["domain"] == dom), None)
@@ -72,23 +72,24 @@ def header(path):
 <button type="button" data-mega-btn aria-expanded="false">Formations</button>
 <a href="{L(path,"formation-intelligence-artificielle/")}">Intelligence artificielle</a>
 <a href="{L(path,"formation-pack-office-2/")}">Pack Office</a>
+<a href="{L(path,"programmes/")}">Programmes</a>
 <a href="{L(path,"")}#financement">Financement</a>
 <a href="{L(path,"blog/")}">Blog</a>
 <a class="btn" href="{S.RDV}">Prendre rendez-vous</a></nav>
 <button class="burger" type="button" data-burger aria-expanded="false" aria-label="Ouvrir le menu"><span></span></button>
 </div>{mega(path)}</header>
 <nav class="mnav" data-mnav aria-label="Menu mobile"><h4>Formations</h4>{m}
-<h4>Le centre</h4><a href="{L(path,"formation-intelligence-artificielle/")}">Intelligence artificielle</a><a href="{L(path,"formation-pack-office-2/")}">Pack Office</a><a href="{L(path,"")}#financement">Financement</a><a href="{L(path,"blog/")}">Blog</a>
+<h4>Le centre</h4><a href="{L(path,"formation-intelligence-artificielle/")}">Intelligence artificielle</a><a href="{L(path,"formation-pack-office-2/")}">Pack Office</a><a href="{L(path,"programmes/")}">Programmes</a><a href="{L(path,"")}#financement">Financement</a><a href="{L(path,"blog/")}">Blog</a>
 <a class="btn" href="{S.RDV}">Prendre rendez-vous</a></nav>'''
 
 def footer(path):
     fl = "".join(f'<li><a href="{L(path,f["slug"]+"/")}">{E(f["menu"])}</a></li>' for f in FORMATIONS)
     return f'''<footer class="footer"><div class="wrap">
 <div class="footer__top">
-<div>{brand(path)}<p style="margin-top:1.4rem;max-width:34ch">Organisme de formation certifié Qualiopi. Formations certifiantes en intelligence artificielle, marketing digital et Pack Office, 100 % à distance.</p>
+<div>{brand(path, "light")}<p style="margin-top:1.4rem;max-width:34ch">Organisme de formation certifié Qualiopi. Formations certifiantes en intelligence artificielle et Pack Office, 100 % à distance.</p>
 <a class="fn" href="{S.LINKS["francenum"]}" rel="noopener"><img src="{L(path,"assets/img/logo-Activateur.jpg")}" alt="Activateur France Num" width="120" height="44" loading="lazy"></a></div>
 <div><h4>Formations</h4><ul>{fl}</ul></div>
-<div><h4>Le centre</h4><ul><li><a href="{L(path,"formation-intelligence-artificielle/")}">Univers IA</a></li><li><a href="{L(path,"formation-pack-office-2/")}">Univers Pack Office</a></li><li><a href="{L(path,"blog/")}">Blog</a></li><li><a href="{S.LINKS["sante"]}" rel="noopener">Formations Santé ↗</a></li><li><a href="{S.RDV}">Prendre rendez-vous</a></li></ul></div>
+<div><h4>Le centre</h4><ul><li><a href="{L(path,"formation-intelligence-artificielle/")}">Univers IA</a></li><li><a href="{L(path,"formation-pack-office-2/")}">Univers Pack Office</a></li><li><a href="{L(path,"programmes/")}">Programmes</a></li><li><a href="{L(path,"blog/")}">Blog</a></li><li><a href="{S.LINKS["sante"]}" rel="noopener">Formations Santé ↗</a></li><li><a href="{S.RDV}">Prendre rendez-vous</a></li></ul></div>
 <div><h4>Contact</h4><ul><li><a href="tel:{S.PHONE_INTL}">{S.PHONE}</a></li><li><a href="mailto:{S.EMAIL}">{S.EMAIL}</a></li><li>125 bd du Général Koenig<br>92200 Neuilly-sur-Seine</li>
 <li style="margin-top:.6rem"><a href="{S.LINKS["instagram"]}" rel="noopener">Instagram</a> · <a href="{S.LINKS["facebook"]}" rel="noopener">Facebook</a></li></ul></div>
 </div>
@@ -199,8 +200,7 @@ def build_home(posts):
 <span class="mono c-dom">{DOMAINS[f["domain"]]}</span><span class="mono c-cert">{f["code"]}</span><span class="mono c-dur">{E(dur(f))}</span><span class="index__go" aria-hidden="true">→</span></a>'''
                    for i, f in enumerate(FORMATIONS, 1))
     rows += f'''<a class="index__row" href="{S.RDV}"><span class="num">{len(FORMATIONS)+1:02d}</span><span class="index__title">Formation sur mesure<small>Un programme construit pour vous, en individuel ou en collectif</small></span><span class="mono c-dom">Toutes thématiques</span><span class="mono c-cert">Sur devis</span><span class="mono c-dur">À définir</span><span class="index__go" aria-hidden="true">→</span></a>'''
-    univ = [("Marketing digital","formation-marketing-digital-en-ligne/","Apprenez à concevoir et déployer une stratégie marketing digitale efficace. SEO, SEA, réseaux sociaux, publicité : maîtrisez les leviers essentiels pour maximiser vos résultats."),
-            ("Intelligence artificielle","formation-intelligence-artificielle/","Découvrez comment l’IA peut transformer vos projets et votre carrière : de l’IA générative à l’automatisation, en passant par le marketing de contenus."),
+    univ = [("Intelligence artificielle","formation-intelligence-artificielle/","Découvrez comment l’IA peut transformer vos projets et votre carrière : de l’IA générative à l’automatisation, en passant par le marketing de contenus."),
             ("Pack Office","formation-pack-office-2/","Gagnez en productivité avec une maîtrise complète des outils bureautiques. Apprenez à créer des documents, analyser des données et collaborer."),
             ("Sur mesure",None,"Nous créons un programme adapté à vos besoins, qu’il s’agisse d’une formation individuelle ou collective. Contenu, durée, objectifs : tout est ajusté pour répondre à vos attentes.")]
     uni = "".join(f'<article><span class="num">{chr(65+i)}</span><h3>{t}</h3><p>{d}</p><a class="link-arrow small" href="{L(path,u) if u else S.RDV}">{"Découvrir" if u else "Nous contacter"}</a></article>' for i,(t,u,d) in enumerate(univ))
@@ -255,7 +255,7 @@ def build_home(posts):
            "address":{"@type":"PostalAddress","streetAddress":"125 Boulevard du Général Koenig","postalCode":"92200","addressLocality":"Neuilly-sur-Seine","addressCountry":"FR"},
            "sameAs":[S.LINKS["instagram"],S.LINKS["facebook"]]}]
     page(path, "Formations en ligne certifiées CPF | Konig Formation",
-         "Konig Formation, organisme certifié Qualiopi : formations en ligne certifiantes et éligibles CPF en intelligence artificielle, marketing digital et Pack Office.",
+         "Konig Formation, organisme certifié Qualiopi : formations en ligne certifiantes et éligibles CPF en intelligence artificielle et Pack Office.",
          body, jsonld=ld)
 
 def build_formation(f, i):
@@ -384,6 +384,28 @@ def build_post(p, posts):
            "mainEntityOfPage":S.SITE_URL+"/"+path}]
     page(path, f'{p["title"]} | Konig Formation', p["description"], body, jsonld=ld, og_img=p["cover"], og_type="article")
 
+
+def build_programmes():
+    path = "programmes/"
+    items = []
+    for i, f in enumerate(FORMATIONS, 1):
+        mods = "".join(f'<li><span class="num">Module {k:02d}</span> {t}</li>' for k, (t, _) in enumerate(f["modules"], 1))
+        ext = f["programme"].startswith("http")
+        href = f["programme"] if ext else L(path, f["programme"])
+        facts = " · ".join(E(b) for a, b in f["facts"][:2])
+        items.append(f'''<article class="prog rv" id="{f["slug"]}">
+<div class="prog__head"><span class="num">{i:02d}</span><div><span class="label label--brass">{DOMAINS[f["domain"]]} · {f["code"]}</span>
+<h2>{f["display_title"]}</h2><p class="muted">{facts}</p></div></div>
+<ol class="prog__mods">{mods}</ol>
+<div class="btns"><a class="btn {"btn--ext" if ext else "btn--dl"}" href="{href}" {"rel=noopener" if ext else ""}>Télécharger le programme</a><a class="btn btn--ghost" href="{L(path,f["slug"]+"/")}">Programme détaillé en ligne</a></div>
+</article>''')
+    body = f'''<div class="wrap crumbs"><a href="{L(path,"")}">Accueil</a><span>/</span>Programmes</div>
+<section class="phero"><div class="wrap"><h1>Nos programmes de formation</h1>
+<p class="lead">Le contenu de chaque formation, module par module. Chaque programme est téléchargeable et détaillé sur la fiche de la formation : objectifs, prérequis, modalités d’évaluation et certification.</p></div></section>
+<section class="section" style="padding-top:0"><div class="wrap progs">{"".join(items)}</div></section>
+{contact_band(path, "Une question sur un <em>programme</em> ?")}'''
+    page(path, "Programmes de formation | Konig Formation", "Programmes détaillés des formations certifiantes Konig Formation : IA générative, IA et automatisation, IA et marketing de contenus, Word, Excel, Microsoft 365.", body)
+
 def build_landing():
     path = "intelligence-artificielle-konig-formation/"
     f = FBY["formation-ia"]
@@ -489,8 +511,9 @@ def main():
     for h in HUBS: build_hub(h)
     build_blog(posts)
     for p in posts: build_post(p, posts)
-    build_landing(); build_legal()
+    build_programmes(); build_landing(); build_legal()
     redirect("formations-en-ligne-certifiees-cpf/", "")
+    redirect("formation-marketing-digital-en-ligne/", "")
     if CUSTOM_DOMAIN: open(os.path.join(OUT, "CNAME"), "w").write("www.konigformation.com\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {S.SITE_URL}/sitemap.xml\n")

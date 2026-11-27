@@ -3,8 +3,8 @@
 
 SITE_URL = "https://www.konigformation.com"
 NAME = "Konig Formation"
-PHONE = "06 66 08 65 71"
-PHONE_INTL = "+33666086571"
+PHONE = "06 18 70 07 47"
+PHONE_INTL = "+33618700747"
 EMAIL = "contact@konigformation.com"
 RDV = "https://dashboard.meninbot.com/rdv/WDGniasDpOPphQg5231Y9v"
 GTM_ID = "GTM-KHWRG8FH"
@@ -48,7 +48,7 @@ FINANCEMENT = [
 ]
 
 HANDICAP = ("La formation est aménageable sur demande à un public en situation de handicap. "
-            "Pour toute demande : contact@konigformation.com ou 06 66 08 65 71.")
+            "Pour toute demande : contact@konigformation.com ou 06 18 70 07 47.")
 
 AVIS_NOTE = "Excellent · basé sur 17 avis Google"
 AVIS = [
