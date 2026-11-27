@@ -1,0 +1,71 @@
+<!--
+{
+ "title": "Les 5 formules Excel essentielles qui changent tout (avec un exemple concret chacune)",
+ "slug": "formules-excel-essentielles-gagner-temps-2026",
+ "date": "2026-11-02",
+ "category": "pack-office",
+ "description": "Les 5 formules Excel essentielles (SI, RECHERCHEX, SOMME.SI.ENS, SIERREUR, NB.SI) avec un exemple concret chacune. Automatise 80 % de ton quotidien.",
+ "cover": "assets/covers/formules-excel-essentielles-gagner-temps-2026.png"
+}
+-->
+<p>Tu utilises Excel, mais dès qu&rsquo;il faut aller plus loin que des additions, tu bloques — ou tu fais tout à la main. Pourtant, une poignée de <strong>formules Excel</strong> bien choisies suffit à automatiser 80 % de ce que tu fais au quotidien. Pas besoin d&rsquo;être expert : voici les 5 formules qui te feront gagner le plus de temps, avec un exemple concret pour chacune. Garde cet article sous la main.</p>
+
+<h2>Pourquoi apprendre 5 formules change tout</h2>
+
+<p>Excel compte des centaines de fonctions, mais tu n&rsquo;en utiliseras vraiment qu&rsquo;une petite dizaine. Le secret, ce n&rsquo;est pas d&rsquo;en connaître beaucoup : c&rsquo;est de maîtriser les bonnes et de savoir les combiner. Ces cinq-là couvrent l&rsquo;essentiel : décider, retrouver, additionner sous conditions, éviter les erreurs, et compter. Apprends-les, et tu passes de « je galère » à « je gère ».</p>
+
+<h2>1. SI — faire décider Excel à ta place</h2>
+
+<p>La formule <code>SI</code> teste une condition et renvoie un résultat différent selon qu&rsquo;elle est vraie ou fausse. Idéale pour classer, alerter, calculer des remises.</p>
+
+<pre class="wp-block-code"><code>=SI(B2&gt;=1000 ; "Client VIP" ; "Client standard")</code></pre>
+
+<p>Ici, si le montant en B2 dépasse 1000, Excel affiche « Client VIP », sinon « Client standard ». Simple, et redoutablement utile.</p>
+
+<h2>2. RECHERCHEX — retrouver une info en une seconde</h2>
+
+<p><code>RECHERCHEX</code> (XLOOKUP) va chercher une valeur dans une liste et te renvoie l&rsquo;information associée. Fini de parcourir 2000 lignes à la main pour retrouver le prix d&rsquo;un produit ou l&rsquo;e-mail d&rsquo;un client.</p>
+
+<pre class="wp-block-code"><code>=RECHERCHEX(A2 ; Clients[Nom] ; Clients[Email] ; "Introuvable")</code></pre>
+
+<p>Excel cherche le nom en A2 dans la colonne Nom et te renvoie l&rsquo;e-mail correspondant. Plus souple que l&rsquo;ancien RECHERCHEV, et sans colonne à compter.</p>
+
+<h2>3. SOMME.SI.ENS — additionner selon des critères</h2>
+
+<p>Tu veux le total des ventes d&rsquo;un commercial, sur un mois donné ? <code>SOMME.SI.ENS</code> additionne uniquement les lignes qui remplissent plusieurs conditions.</p>
+
+<pre class="wp-block-code"><code>=SOMME.SI.ENS(Montant ; Commercial ; "Sophie" ; Mois ; "Octobre")</code></pre>
+
+<p>Résultat : la somme des montants pour Sophie, en octobre. Un rapport qui prenait dix minutes se fait en une formule.</p>
+
+<h2>4. SIERREUR — des tableaux propres et pros</h2>
+
+<p>Rien de pire qu&rsquo;un tableau truffé de « #N/A » ou « #DIV/0! ». <code>SIERREUR</code> remplace ces messages par ce que tu veux.</p>
+
+<pre class="wp-block-code"><code>=SIERREUR(RECHERCHEX(A2 ; Clients[Nom] ; Clients[Email]) ; "À compléter")</code></pre>
+
+<p>Si la recherche échoue, Excel affiche « À compléter » au lieu d&rsquo;une erreur. Tes tableaux restent présentables, même devant un client.</p>
+
+<h2>5. NB.SI — compter intelligemment</h2>
+
+<p><code>NB.SI</code> compte le nombre de cellules qui remplissent une condition. Parfait pour des statistiques rapides : combien de commandes au-dessus de 500 € ? combien de clients dans telle ville ?</p>
+
+<pre class="wp-block-code"><code>=NB.SI(Ville ; "Lyon")</code></pre>
+
+<p>Tu obtiens instantanément le nombre de clients à Lyon. À combiner avec un critère de montant via NB.SI.ENS pour aller plus loin.</p>
+
+<h2>Le vrai secret : les combiner</h2>
+
+<p>La puissance d&rsquo;Excel apparaît quand tu emboîtes les formules : un <code>SIERREUR</code> autour d&rsquo;un <code>RECHERCHEX</code>, un <code>SI</code> qui s&rsquo;appuie sur un <code>SOMME.SI.ENS</code>… C&rsquo;est là qu&rsquo;on passe de l&rsquo;utilisateur basique à celui qui construit de vrais outils. Mais attention : enchaîner des tutos isolés laisse des trous. Pour relier ces briques dans le bon ordre et maîtriser vraiment Excel, rien ne vaut un parcours structuré. Côté IA, lis aussi <a href="/ia-specialisee-metier-opportunite-2026/">pourquoi l&rsquo;IA se spécialise par métier</a>.</p>
+
+<h2>Deux combinaisons qui font gagner des heures</h2>
+
+<p>Voici où la vraie efficacité se cache. Première combinaison : un <code>RECHERCHEX</code> enveloppé dans un <code>SIERREUR</code>. Tu vas chercher l&rsquo;information d&rsquo;un client, et si elle n&rsquo;existe pas encore, au lieu d&rsquo;un vilain « #N/A », ta cellule affiche « À compléter ». Ton tableau reste propre, même en pleine saisie. Deuxième combinaison : un <code>SI</code> qui s&rsquo;appuie sur un <code>SOMME.SI.ENS</code> — par exemple, « si le total des ventes de ce commercial dépasse son objectif, afficher Prime, sinon Rien ». En une formule, tu construis un petit tableau de bord qui se met à jour tout seul.</p>
+
+<p>Le point commun de ces combinaisons ? Elles transforment Excel d&rsquo;un outil où tu calcules à la main en un outil qui calcule <em>pour</em> toi. C&rsquo;est tout le saut entre « utiliser Excel » et « faire travailler Excel ». Et comme toute compétence, ça se construit par la pratique guidée : on part du simple, on ajoute une brique, on vérifie, on avance. Seul avec des tutos épars, on cale vite ; accompagné, on franchit les paliers sans se décourager.</p>
+
+<p>Un dernier réflexe qui fait toute la différence : nomme tes plages de données (menu Formules → Gestionnaire de noms, ou transforme-les en « Tableau »). Tes formules deviennent lisibles — <code>Montant</code> au lieu de <code>D2:D500</code> — et bien plus faciles à corriger six mois plus tard. C&rsquo;est le genre de détail qui sépare un fichier bricolé d&rsquo;un outil fiable que toute une équipe peut reprendre.</p>
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>Tu veux enfin maîtriser Excel et le Pack Office au lieu de bloquer dès qu&rsquo;une formule se complique ?<br>Chez Konig Formation, on te construit un parcours 100 % en ligne, certifié Qualiopi et accompagné — en Pack Office, IA ou Marketing Digital — adapté à ton niveau et à ton objectif.<br>👉 <a href="/">Découvre les formations et parle à un conseiller</a> pour bâtir ton plan de montée en compétences.<br><em>Formations certifiées Qualiopi — finançables CPF / OPCO / FAF / France Travail. Reste à charge souvent 0 € selon éligibilité.</em></p></blockquote>
+
+<p><strong>PS :</strong> apprends-en une par jour cette semaine, sur tes propres fichiers. D&rsquo;ici lundi, tu auras les cinq — et un réflexe « Excel » que beaucoup n&rsquo;auront jamais.</p>

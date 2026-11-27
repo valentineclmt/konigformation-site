@@ -1,0 +1,55 @@
+<!--
+{
+ "title": "Excel : la mise en forme conditionnelle, le hack pour lire tes données d’un coup d’œil",
+ "slug": "mise-en-forme-conditionnelle-excel-2026",
+ "date": "2026-11-15",
+ "category": "pack-office",
+ "description": "La mise en forme conditionnelle Excel : colore tes cellules (surbrillance, barres, icônes, doublons) pour lire tes données d'un coup d'œil.",
+ "cover": "assets/covers/mise-en-forme-conditionnelle-excel-2026.png"
+}
+-->
+<p>Tu as un tableau rempli de chiffres, et personne — toi compris — n&rsquo;arrive à voir d&rsquo;un coup d&rsquo;œil ce qui va bien et ce qui cloche. La solution tient en trois mots : <strong>mise en forme conditionnelle</strong>. C&rsquo;est la fonction Excel qui colore automatiquement tes cellules selon leur valeur, pour faire ressortir l&rsquo;essentiel sans effort. En dix minutes, tes tableaux passent d&rsquo;illisibles à parlants. Voici comment.</p>
+
+<h2>La mise en forme conditionnelle, en une phrase</h2>
+
+<p>C&rsquo;est une règle du type « SI la cellule remplit cette condition, ALORS applique cette couleur ». Tu la trouves dans l&rsquo;onglet <em>Accueil</em> → <em>Mise en forme conditionnelle</em>. L&rsquo;avantage : la couleur s&rsquo;adapte toute seule quand tes données changent. Un retard qui passe au rouge, un objectif atteint qui passe au vert — sans que tu touches à rien. Ton tableau devient un tableau de bord visuel.</p>
+
+<h2>1. Surligner selon une valeur</h2>
+
+<p>Le plus simple et le plus utile. Sélectionne ta plage → <em>Mise en forme conditionnelle</em> → <em>Règles de mise en surbrillance</em> → par exemple « Supérieur à… ». Tape ta valeur (disons 1000), choisis un remplissage vert, valide. Toutes les ventes au-dessus de 1000 € ressortent instantanément. Tu peux empiler les règles : rouge en dessous d&rsquo;un seuil, orange entre deux, vert au-dessus.</p>
+
+<h2>2. Les barres de données : un mini-graphique dans la cellule</h2>
+
+<p>Sélectionne une colonne de montants → <em>Mise en forme conditionnelle</em> → <em>Barres de données</em>. Excel dessine une petite barre dans chaque cellule, proportionnelle à la valeur. D&rsquo;un coup d&rsquo;œil, tu vois qui pèse lourd et qui pèse peu, sans faire de graphique. Idéal pour comparer des ventes, des budgets, des stocks.</p>
+
+<h2>3. Les jeux d&rsquo;icônes : le feu tricolore</h2>
+
+<p><em>Mise en forme conditionnelle</em> → <em>Jeux d&rsquo;icônes</em> ajoute des pastilles (vert / orange / rouge, flèches montantes ou descendantes…) selon la valeur. Parfait pour un reporting : chacun comprend en une seconde ce qui est au vert, à surveiller, ou en alerte. C&rsquo;est le genre de détail qui fait très « pro » en réunion.</p>
+
+<h2>4. Repérer les doublons</h2>
+
+<p>Combien de fois as-tu cherché un doublon à la main dans une liste ? <em>Règles de mise en surbrillance</em> → <em>Valeurs en double</em> colore d&rsquo;un coup toutes les répétitions. Indispensable pour nettoyer un fichier clients, une liste d&rsquo;e-mails ou un inventaire avant un import.</p>
+
+<h2>5. Colorer une ligne entière (le niveau au-dessus)</h2>
+
+<p>Tu veux que toute la ligne d&rsquo;une commande « En retard » passe en rouge, pas juste la cellule ? Utilise une règle « basée sur une formule » : sélectionne ton tableau, choisis <em>Nouvelle règle</em> → <em>Utiliser une formule</em>, et saisis par exemple :</p>
+
+<pre class="wp-block-code"><code>=$E2="En retard"</code></pre>
+
+<p>Le dollar devant E « fige » la colonne de référence : Excel regarde le statut en colonne E et colore toute la ligne. C&rsquo;est ce petit détail (le $) qui transforme une mise en forme basique en vrai tableau de bord.</p>
+
+<h2>Les erreurs à éviter</h2>
+
+<p>Deux pièges classiques. D&rsquo;abord, <strong>trop de couleurs</strong> : si tout est colorié, plus rien ne ressort. Garde 2-3 règles maximum par tableau. Ensuite, <strong>oublier de gérer les règles</strong> : via <em>Gérer les règles</em>, tu peux voir, modifier ou supprimer ce que tu as empilé — sinon tu te retrouves vite avec un sapin de Noël incompréhensible. La sobriété, toujours.</p>
+
+<p>En quelques clics, tu viens d&rsquo;apprendre à faire « parler » tes données. Mais la mise en forme conditionnelle n&rsquo;est qu&rsquo;une brique : combinée aux formules, aux tableaux croisés dynamiques et aux graphiques, elle fait de toi quelqu&rsquo;un de redoutable sur Excel. Pour relier ces briques dans le bon ordre, rien ne vaut un parcours structuré. Côté IA, lis aussi <a href="/ia-achats-chatgpt-wallet-competence-2026/">pourquoi l&rsquo;IA se met à agir (et même à acheter) à ta place</a>.</p>
+
+<h2>Un exemple concret : ton suivi de commandes</h2>
+
+<p>Prenons un tableau de commandes avec une colonne « Statut » (Payée, En attente, En retard) et une colonne « Montant ». En trois règles, tu le transformes en tableau de bord vivant. Règle 1 : toute la ligne « En retard » passe en rouge (via la formule à base de $). Règle 2 : les montants au-dessus de 1000 € se surlignent en vert, pour repérer tes grosses commandes. Règle 3 : un jeu d&rsquo;icônes sur la colonne Montant, avec une pastille verte, orange ou rouge selon le palier. En un coup d&rsquo;œil, du haut de ta liste, tu sais ce qui est urgent, ce qui est important, et ce qui va bien — sans lire une seule cellule en détail. C&rsquo;est précisément ce que font les pros : ils ne « lisent » pas leurs tableaux, ils les <em>voient</em>.</p>
+
+<p>Petit bonus qui fait plaisir : la mise en forme conditionnelle se marie parfaitement avec les tableaux croisés dynamiques et les filtres. Tu peux colorer un récap, filtrer sur « rouge uniquement », et obtenir en deux secondes la liste de ce qui demande ton attention. C&rsquo;est là qu&rsquo;Excel cesse d&rsquo;être une corvée pour devenir un vrai copilote de décision.</p>
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>Tu veux enfin maîtriser Excel et le Pack Office au lieu de subir des tableaux illisibles ?<br>Chez Konig Formation, on te construit un parcours 100 % en ligne, certifié Qualiopi et accompagné — en Pack Office, IA ou Marketing Digital — adapté à ton niveau et à ton objectif.<br>👉 <a href="/">Découvre les formations et parle à un conseiller</a> pour bâtir ton plan de montée en compétences.<br><em>Formations certifiées Qualiopi — finançables CPF / OPCO / FAF / France Travail. Reste à charge souvent 0 € selon éligibilité.</em></p></blockquote>
+
+<p><strong>PS :</strong> teste-la ce soir sur un vrai fichier. Ajoute une règle « rouge si négatif », une autre « vert si objectif atteint », et regarde ton tableau prendre vie. Tu ne travailleras plus jamais sans.</p>

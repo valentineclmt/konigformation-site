@@ -1,0 +1,35 @@
+<!--
+{
+ "title": "Microsoft supprime une fonction Excel le 14 septembre : le vrai réflexe à apprendre à la place",
+ "slug": "excel-copilot-supprime-14-septembre-le-bon-reflexe",
+ "date": "2026-09-07",
+ "category": "pack-office",
+ "description": "Tu passes encore des heures à copier-coller entre deux fichiers Excel, à chercher une info à la main, à refaire le même tableau chaque semaine ? Ce tuto va te f",
+ "cover": "assets/covers/excel-copilot-supprime-14-septembre-le-bon-reflexe.png"
+}
+-->
+<p>Tu passes encore des heures à copier-coller entre deux fichiers Excel, à chercher une info à la main, à refaire le même tableau chaque semaine ? Ce tuto va te faire gagner un temps fou — et t&rsquo;éviter de miser sur la mauvaise fonctionnalité au mauvais moment.</p>
+<h2>La news : une fonction Excel s&rsquo;éteint le 14 septembre 2026</h2>
+<p>À partir du <strong>14 septembre 2026, Microsoft retire la fonction <code>=COPILOT()</code></strong> dans Excel — une formule qui permettait d&rsquo;appeler l&rsquo;IA directement dans une cellule. Pas de panique : l&rsquo;IA reste dans Excel via le <strong>volet Copilot</strong> (le panneau latéral), qui sait résumer, classer des données, générer du contenu et aller chercher des infos sur le web. Et depuis la mi-août, « Edit with Copilot » peut même <strong>exécuter du Python</strong> dans Excel pour de l&rsquo;analyse avancée.</p>
+<p>La leçon est claire : <strong>les boutons changent, les fondamentaux restent.</strong> Miser toute ta productivité sur une fonction « magique » qui peut disparaître du jour au lendemain, c&rsquo;est risqué. Miser sur la maîtrise des mécaniques d&rsquo;Excel, c&rsquo;est du solide. On fait les deux ci-dessous.</p>
+<h2>Hack n°1 — RECHERCHEX (XLOOKUP) : la fin du copier-coller entre fichiers</h2>
+<p>Si tu utilises encore RECHERCHEV (VLOOKUP), tu travailles avec un outil de 1985. <strong>RECHERCHEX</strong> est plus simple, cherche dans les deux sens et ne casse pas quand tu ajoutes une colonne.</p>
+<p>Exemple : tu as une liste de clients dans un onglet et tu veux récupérer leur ville depuis un autre tableau.</p>
+<pre class="wp-block-code"><code>=RECHERCHEX(A2; Clients[Nom]; Clients[Ville]; "Non trouvé")</code></pre>
+<ul><li><code>A2</code> = ce que tu cherches</li><li><code>Clients[Nom]</code> = la colonne où chercher</li><li><code>Clients[Ville]</code> = la colonne à ramener</li><li><code>"Non trouvé"</code> = ce qui s&rsquo;affiche si aucune correspondance (fini les <code>#N/A</code> moches)</li></ul>
+<p>Rien que ça, sur un rapprochement de 300 lignes, c&rsquo;est 30 minutes économisées chaque semaine.</p>
+<h2>Hack n°2 — Le combo qui nettoie tes données en 1 formule</h2>
+<p>Des noms avec des espaces en trop, des majuscules/minuscules incohérentes ? Au lieu de corriger à la main :</p>
+<pre class="wp-block-code"><code>=NOMPROPRE(SUPPRESPACE(A2))</code></pre>
+<p><code>SUPPRESPACE</code> enlève les espaces inutiles, <code>NOMPROPRE</code> remet une majuscule à chaque mot. « jEAN   dupont » → « Jean Dupont ». Étire la formule, copie, colle en valeurs. Terminé.</p>
+<h2>Hack n°3 — Faire du volet Copilot ton analyste</h2>
+<p>Maintenant que <code>COPILOT()</code> disparaît, prends le réflexe du <strong>volet latéral</strong>. Ouvre-le et demande, en langage courant :</p>
+<ul><li>« Résume ce tableau en 3 tendances clés. »</li><li>« Classe ces réclamations par thème et compte-les. »</li><li>« Crée un tableau croisé dynamique du CA par région et par mois. »</li></ul>
+<p>Le gain n&rsquo;est pas la formule : c&rsquo;est de <strong>savoir formuler la bonne demande</strong>. Là encore, c&rsquo;est une compétence, pas un bouton.</p>
+<h2>Hack n°4 — Le raccourci que personne n&rsquo;utilise : <code>Ctrl + T</code></h2>
+<p>Sélectionne tes données, fais <code>Ctrl + T</code> : tu transformes une plage en <strong>tableau structuré</strong>. Résultat : filtres automatiques, formules qui se propagent toutes seules, noms de colonnes lisibles dans tes formules (comme <code>Clients[Ville]</code> plus haut). C&rsquo;est la base sur laquelle tout le reste devient facile. 10 secondes pour l&rsquo;activer, des heures gagnées ensuite.</p>
+<h2>Le pont : 3 astuces isolées vs. une vraie maîtrise</h2>
+<p>Ces 4 hacks te font déjà gagner du temps dès cet après-midi. Mais si Excel reste pour toi un empilement d&rsquo;astuces glanées ici et là, tu resteras bloqué dès que le problème sort du cadre. La différence entre « connaître trois formules » et « être autonome sur Excel » (tableaux croisés, Power Query, automatisations, et maintenant Copilot bien utilisé), c&rsquo;est une méthode complète — et une certification qui le prouve sur ton CV.</p>
+<p>C&rsquo;est ce que couvre notre parcours <strong>Pack Office (Excel &amp; Microsoft 365)</strong> : progressif, 100 % en ligne, avec un formateur qui répond à <em>tes</em> cas concrets.</p>
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p><strong>Tu veux arrêter d&rsquo;accumuler des astuces au hasard et devenir vraiment autonome sur Excel ?</strong></p><p>Chez Konig Formation, on te construit un parcours <strong>100 % en ligne, certifié Qualiopi et accompagné</strong> — en Marketing Digital, IA ou Pack Office — adapté à ton niveau et à ton objectif.</p><p>👉 <strong><a href="/">Découvre les formations et parle à un conseiller</a></strong> pour bâtir ton plan de montée en compétences.</p><p><em>Formations certifiées Qualiopi — finançables CPF / OPCO / FAF / France Travail. Reste à charge souvent 0 € selon éligibilité.</em></p></blockquote>
+<p><em>PS — Une compétence Excel certifiée est l&rsquo;une des plus rentables du marché : elle sert dans presque tous les métiers. Vérifie ton éligibilité CPF/OPCO avec un conseiller avant de t&rsquo;y mettre seul.</em></p>

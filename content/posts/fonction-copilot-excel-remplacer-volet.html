@@ -1,0 +1,58 @@
+<!--
+{
+ "title": "La fonction COPILOT() d’Excel s’arrête aujourd’hui : comment garder l’IA dans tes tableaux",
+ "slug": "fonction-copilot-excel-remplacer-volet",
+ "date": "2026-09-14",
+ "category": "pack-office",
+ "description": "La fonction COPILOT() d'Excel disparaît le 14/09/2026 : voici comment garder l'IA dans tes tableaux (volet Copilot + Python), pas à pas.",
+ "cover": "assets/covers/fonction-copilot-excel-remplacer-volet.png"
+}
+-->
+<p>Si tu utilisais la fonction <code>=COPILOT()</code> directement dans tes cellules, mauvaise nouvelle : Microsoft la retire <strong>à partir du 14 septembre 2026</strong>. Bonne nouvelle : l&rsquo;IA ne quitte pas Excel, elle change juste de porte d&rsquo;entrée — et elle est devenue bien plus puissante. Voici comment garder <strong>Copilot dans Excel</strong> sans rien perdre, et même en faire plus qu&rsquo;avant.</p>
+
+<h2>Ce qui change (et pourquoi ne pas paniquer)</h2>
+
+<p>La fonction <code>=COPILOT()</code>, qui permettait d&rsquo;appeler l&rsquo;IA au cœur d&rsquo;une formule, est restée en préversion depuis août 2025. Microsoft a décidé de ne pas la pérenniser : à partir du 14 septembre 2026, elle cesse de fonctionner. L&rsquo;éditeur redirige les utilisateurs vers le <strong>volet latéral Copilot</strong>, qui reprend l&rsquo;essentiel des usages (résumer, classer, générer, aller chercher une information) et en ajoute de nouveaux.</p>
+
+<p>Traduction concrète : tu ne perds pas l&rsquo;IA, tu passes d&rsquo;une petite fonction fragile à un vrai assistant intégré. La méthode change, la valeur augmente.</p>
+
+<h2>Comment retrouver la même chose via le volet Copilot</h2>
+
+<ol>
+<li>Ouvre ton classeur, onglet <strong>Accueil</strong> → clique sur le bouton <strong>Copilot</strong> (à droite du ruban). Le volet s&rsquo;ouvre sur le côté.</li>
+
+<li>Sélectionne la plage de données concernée <em>avant</em> de poser ta demande : Copilot travaille mieux avec un contexte clair.</li>
+
+<li>Formule une consigne précise, par exemple : « Classe ces avis clients en 3 catégories (positif / neutre / négatif) dans une nouvelle colonne. »</li>
+
+<li>Vérifie la proposition, puis valide pour l&rsquo;insérer dans la feuille. Tu gardes toujours la main sur le résultat.</li>
+</ol>
+
+<p>Le réflexe à garder : une bonne demande contient <strong>l&rsquo;action + la plage + le format de sortie attendu</strong>. C&rsquo;est 80 % de la réussite.</p>
+
+<h2>Le nouveau super-pouvoir : Python dans Excel via Copilot</h2>
+
+<p>Depuis fin août 2026, « Edit with Copilot » peut exécuter du <strong>Python directement dans Excel</strong> : statistiques avancées, simulations, visualisations, nettoyage de données… le tout sans quitter ton classeur. Tu n&rsquo;as pas besoin de coder toi-même : tu décris le résultat, Copilot génère et exécute le code, et la sortie atterrit dans la feuille.</p>
+
+<p>Exemple de demande à taper dans le volet :</p>
+
+<pre class="wp-block-code"><code>À partir de la plage A1:D500 (ventes mensuelles),
+calcule le chiffre d'affaires par région, identifie les 3 régions
+en baisse sur les 6 derniers mois, et génère un graphique clair.
+Utilise Python si nécessaire.</code></pre>
+
+<p>Ce qui demandait un tableau croisé dynamique + plusieurs formules se fait désormais en une phrase. Ton rôle : cadrer la demande et <strong>vérifier</strong> le résultat.</p>
+
+<h2>La compétence que l&rsquo;IA ne remplacera pas : comprendre tes données</h2>
+
+<p>Copilot va vite, mais il ne sait pas si ton fichier est propre. Maîtriser les fondamentaux reste décisif. Un exemple qui sauve des heures : remplace tes vieux <code>RECHERCHEV</code> par <code>RECHERCHEX</code> (XLOOKUP), plus souple et sans colonne de référence à compter :</p>
+
+<pre class="wp-block-code"><code>=RECHERCHEX(A2 ; Clients[Email] ; Clients[Nom] ; "Introuvable")</code></pre>
+
+<p>L&rsquo;IA t&rsquo;aide à aller plus vite ; les bases t&rsquo;évitent de foncer dans le mur plus vite. Les deux ensemble, c&rsquo;est ça la vraie montée en compétences sur Excel et Microsoft 365.</p>
+
+<p>Sur le sujet IA, lis aussi : <a href="/gpt-6-astra-competence-ia-rentree/">la compétence IA à ne pas rater cette rentrée</a>.</p>
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>Tu veux arrêter de subir les mises à jour d&rsquo;Excel et enfin maîtriser Copilot + les fondamentaux qui font gagner des heures ?<br>Chez Konig Formation, on te construit un parcours 100 % en ligne, certifié Qualiopi et accompagné — en Pack Office, IA ou Marketing Digital — adapté à ton niveau et à ton objectif.<br>👉 <a href="/">Découvre les formations et parle à un conseiller</a> pour bâtir ton plan de montée en compétences.<br><em>Formations certifiées Qualiopi — finançables CPF / OPCO / FAF / France Travail. Reste à charge souvent 0 € selon éligibilité.</em></p></blockquote>
+
+<p><strong>PS :</strong> chaque retrait de fonctionnalité te rappelle une chose — ce n&rsquo;est pas l&rsquo;outil qu&rsquo;il faut apprendre par cœur, c&rsquo;est la logique. Une formation solide te rend autonome quel que soit le prochain changement de Microsoft.</p>
