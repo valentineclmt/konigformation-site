@@ -209,9 +209,7 @@ def build_home(posts):
     flag = next(f for f in FORMATIONS if f.get("flagship"))
     body = f'''
 <section class="hero"><div class="wrap hero__grid">
-<div><span class="label label--brass">Organisme de formation certifié Qualiopi</span>
-<h1>Développez vos compétences à votre rythme, où que vous soyez, avec nos formations en ligne éligibles CPF</h1>
-<p class="lead">Transformez votre carrière grâce à nos formations certifiantes entièrement à distance.</p>
+<div><h1>Développez vos compétences à votre rythme, où que vous soyez, avec nos formations en ligne éligibles CPF</h1>
 <div class="btns"><a class="btn" href="{S.RDV}">Contacter un conseiller</a><a class="btn btn--ghost" href="#formations">Voir les formations</a></div>
 <a class="hero__sante link" href="{S.LINKS["sante"]}" rel="noopener">Découvrez aussi nos formations Santé ↗</a></div>
 <aside class="hero__aside" aria-label="Sommaire des formations"><span class="label"><span>Sommaire</span><span>{len(FORMATIONS)} formations certifiantes</span></span><ol class="toc">{toc}</ol></aside>

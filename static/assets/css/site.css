@@ -536,3 +536,4 @@ p,li{max-width:70ch}
 .footer__bottom{font:400 .85rem/1.5 var(--sans);letter-spacing:0}
 .form label{font:600 .88rem/1 var(--sans);text-transform:none;letter-spacing:0}
 .btn{font-size:1rem;padding:1em 1.4em}
+.hero h1{margin-top:0;margin-bottom:2.4rem}
