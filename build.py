@@ -115,8 +115,8 @@ def page(path, title, desc, body, *, chrome="full", jsonld=None, og_img=None, og
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A2A4E">
 <link rel="icon" href="{p}assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="{p}assets/fonts/Newsreader-normal-400_700-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{p}assets/fonts/SchibstedGrotesk-normal-400_900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{p}assets/fonts/Unbounded-normal-400_800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{p}assets/fonts/Onest-normal-400_700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{p}assets/fonts/fonts.css"><link rel="stylesheet" href="{p}assets/css/site.css?v={VER}">
 {extra_head}{ld}
 </head><body>
